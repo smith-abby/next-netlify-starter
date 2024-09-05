@@ -1,23 +1,13 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+// Create a new script element
+const mailchimpScript = document.createElement('script');
 
-export default function Home() {
-  return (
-    <div className="container">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+// Set the script's id and source as per the Mailchimp embed code
+mailchimpScript.id = 'mcjs';
+mailchimpScript.src = "https://chimpstatic.com/mcjs-connected/js/users/1377935e520ff3adffed7e40e/3ca05b7f6cd132bd314369264.js";
 
-      <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-      </main>
+// Set it to load asynchronously
+mailchimpScript.async = true;
 
-      <Footer />
-    </div>
-  )
-}
+// Insert the script before the first script tag in the document
+const firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(mailchimpScript, firstScriptTag);
