@@ -7,7 +7,7 @@ export default function Home() {
     <div className="container">
       <Head>
         <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/y_tous_logo.png" />
         <script id="mcjs" dangerouslySetInnerHTML={{
           __html: `!function(c,h,i,m,p){
               m=c.createElement(h),p=c.getElementsByTagName(h)[0],
@@ -16,9 +16,9 @@ export default function Home() {
         }} />
       </Head>
       <main>
-        <Header title="Welcome to my app!" />
+        <Header title="Yarby Tours!!!" />
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          I host backpacking trips for friends, friends-of-friends, and all in between! More to come. 
         </p>
       </main>
 
