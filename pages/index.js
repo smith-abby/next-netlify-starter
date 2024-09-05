@@ -1,13 +1,65 @@
-// Create a new script element
-const mailchimpScript = document.createElement('script');
+import Head from 'next/head'
+import Header from '@components/Header'
+import Footer from '@components/Footer'
 
-// Set the script's id and source as per the Mailchimp embed code
-mailchimpScript.id = 'mcjs';
-mailchimpScript.src = "https://chimpstatic.com/mcjs-connected/js/users/1377935e520ff3adffed7e40e/3ca05b7f6cd132bd314369264.js";
+export default function Home() {
+  return (
+    <div className="container">
+      <Head>
+        <title>Next.js Starter!</title>
+        <link rel="icon" href="/favicon.ico" />
+        <script id="mcjs" dangerouslySetInnerHTML={{
+          __html: `!function(c,h,i,m,p){
+              m=c.createElement(h),p=c.getElementsByTagName(h)[0],
+              m.async=1,m.src=i,p.parentNode.insertBefore(m,p)
+          }(document,"script","https://chimpstatic.com/mcjs-connected/js/users/1377935e520ff3adffed7e40e/3ca05b7f6cd132bd314369264.js");`
+        }} />
+      </Head>
+      <main>
+        <Header title="Welcome to my app!" />
+        <p className="description">
+          Get started by editing <code>pages/index.js</code>
+        </p>
+      </main>
 
-// Set it to load asynchronously
-mailchimpScript.async = true;
+      <Footer />
 
-// Insert the script before the first script tag in the document
-const firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(mailchimpScript, firstScriptTag);
+      <style jsx>{`
+        .container {
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        main {
+          padding: 5rem 0;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        code {
+          background: #fafafa;
+          border-radius: 5px;
+          padding: 0.75rem;
+          font-family: Menlo, Monaco, Lucida Console, Courier New, monospace;
+        }
+      `}</style>
+
+      <style jsx global>{`
+        html,
+        body {
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+            Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        }
+        * {
+          box-sizing: border-box;
+        }
+      `}</style>
+    </div>
+  )
+}
