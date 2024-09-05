@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Next.js Starter!</title>
+        <title>Wanna backpack?</title>
         <link rel="icon" href="/y_tours_logo.png" />
       </Head>
       <main>
