@@ -18,7 +18,7 @@ export default function Home() {
       <main>
         <Header title="Yarby Tours!!!" />
         <p className="description">
-          I host backpacking trips for friends, friends-of-friends, and all in between! More to come. 
+          We host backpacking trips for friends, friends-of-friends, and all in between! More to come. 
         </p>
       </main>
 
