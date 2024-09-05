@@ -7,7 +7,7 @@ export default function Home() {
     <div className="container">
       <Head>
         <title>Next.js Starter!</title>
-        <link rel="icon" href="/y_tous_logo.png" />
+        <link rel="icon" href="/y_tours_logo.png" />
         <script id="mcjs" dangerouslySetInnerHTML={{
           __html: `!function(c,h,i,m,p){
               m=c.createElement(h),p=c.getElementsByTagName(h)[0],
