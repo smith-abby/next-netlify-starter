@@ -1,24 +1,34 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import { useEffect } from 'react';
+import Head from 'next/head';
+import Header from '@components/Header';
+import Footer from '@components/Footer';
 
 export default function Home() {
+  useEffect(() => {
+    // Create the Mailchimp script element
+    const script = document.createElement('script');
+    script.src = 'https://chimpstatic.com/mcjs-connected/js/users/1377935e520ff3adffed7e40e/3ca05b7f6cd132bd314369264.js';
+    script.async = true;
+    
+    // Append the script to the body
+    document.body.appendChild(script);
+
+    // Cleanup the script on component unmount
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="container">
       <Head>
         <title>Next.js Starter!</title>
         <link rel="icon" href="/y_tours_logo.png" />
-        <script id="mcjs" dangerouslySetInnerHTML={{
-          __html: `!function(c,h,i,m,p){
-              m=c.createElement(h),p=c.getElementsByTagName(h)[0],
-              m.async=1,m.src=i,p.parentNode.insertBefore(m,p)
-          }(document,"script","https://chimpstatic.com/mcjs-connected/js/users/1377935e520ff3adffed7e40e/3ca05b7f6cd132bd314369264.js");`
-        }} />
       </Head>
       <main>
         <Header title="Yarby Tours!!!" />
         <p className="description">
-          We host backpacking trips for friends, friends-of-friends, and all in between! More to come. 
+          We host backpacking trips for friends, friends-of-friends, and all in between! More to come.
         </p>
       </main>
 
@@ -53,13 +63,15 @@ export default function Home() {
         body {
           padding: 0;
           margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-            Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
         }
         * {
           box-sizing: border-box;
         }
       `}</style>
     </div>
+  );
+}
+
   )
 }
