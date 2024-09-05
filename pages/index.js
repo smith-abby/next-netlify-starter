@@ -5,18 +5,13 @@ import Footer from '@components/Footer';
 
 export default function Home() {
   useEffect(() => {
-    // Create the Mailchimp script element
-    const script = document.createElement('script');
-    script.src = 'https://chimpstatic.com/mcjs-connected/js/users/1377935e520ff3adffed7e40e/3ca05b7f6cd132bd314369264.js';
-    script.async = true;
-    
-    // Append the script to the body
-    document.body.appendChild(script);
-
-    // Cleanup the script on component unmount
-    return () => {
-      document.body.removeChild(script);
-    };
+    // Define the Mailchimp script function as provided in the HTML
+    (function(c, h, i, m, p) {
+      m = c.createElement(h), p = c.getElementsByTagName(h)[0];
+      m.async = 1;
+      m.src = i;
+      p.parentNode.insertBefore(m, p);
+    })(document, "script", "https://chimpstatic.com/mcjs-connected/js/users/1377935e520ff3adffed7e40e/3ca05b7f6cd132bd314369264.js");
   }, []);
 
   return (
